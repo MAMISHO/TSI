@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<openerp>
+       <data>
+               <record id="act_controlempleados" model="ir.actions.act_window">
+       <field name="name">Empleados</field>
+       <field name="res_model">hr.employee</field>
+	    <field name="arch" type="xml">
+	        <field name="name" position="after">
+	            <field name="emp_file" />
+	        </field>
+	    </field>
+       <field name="view_type">form</field>
+       <field name="view_mode">tree,form</field>
+</record>
+<menuitem id="empleados" name="Control de asistencia" action="act_controlempleados" />
+<menuitem name="Opciones" id="control_empleados_submenu" parent="empleados"
+       sequence="100" action="act_controlempleados" />
+￼         </data>
+ </openerp>
