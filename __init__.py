@@ -18,4 +18,4 @@
 #    along with this program.  If not, see http://www.gnu.org/licenses/.
 #
 ##############################################################################
-import empleados
+import hr_employee

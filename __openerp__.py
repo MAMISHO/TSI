@@ -11,7 +11,7 @@
     - Integra decuentos en las nominas en concepto de asistencias.
     """,
     "init_xml": [],
-    'update_xml': ["empleados_view.xml"],
+    'update_xml': ["empleados_view.xml"], 
     'demo_xml': [],
     'installable': True,
     'active': False,

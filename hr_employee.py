@@ -1,15 +1,9 @@
-'''
-Created on 29/11/2014
-
-@author: MAMISHO
-'''
 from osv import fields, osv
 
-class hr_employee(osv.osv):
+class hr_employee(osv.Model):
     _name = 'hr.employee'
     _inherit = 'hr.employee'
     _columns = {
-                'emp_file':fields.char('Employee File Number', size='128'),
-
+                'catalogo':fields.char('Catalogo de asistencia', size=128)#equi suponemos que vamos crear la relacion many2one con el modulo de tarjeta_rfid
     }
 hr_employee()
