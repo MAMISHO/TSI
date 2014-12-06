@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<openerp>
+ <data>
+  <!-- <record id="tarjeta_form_control" model="ir.ui.view">
+   <field name="name">tarjeta.form.control</field>
+   <field name="model">tarjeta.rfid</field>
+   <field name="type">form</field>
+   <field name="inherit_id" ref="hr.view_employee_tree"/>
+        <field name="arch" type="xml">
+            
+        </field>
+ </record> -->
+
+ <record id="act_tarjetas" model="ir.actions.act_window">
+   <field name="name">Tarjetas</field>
+   <field name="res_model">tarjeta.rfid</field>
+   <field name="view_type">form</field>
+   <field name="view_mode">tree,form</field>
+   <!-- <field name="view_id">hr_employee_form_control</field> -->
+ </record>
+
+
+ <!-- <menuitem id="empleados" name="Control de asistencia" action="act_controlempleados" /> -->
+ <menuitem name="Tarjetas" id="submenu_tarjetas" parent="control_empleados_submenu"
+   sequence="100" action="act_tarjetas" />
+   ￼         </data>
+ </openerp>

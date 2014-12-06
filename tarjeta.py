@@ -12,6 +12,7 @@ class tarjeta_rfid(osv.Model):
 			('inactiva','Inactiva'),
 			('perdida','Perdida'),
 			],'Estado'),
-		'id_empleado': fields.char('ID Tarjeta', size=20, required=True),#aqui va la relacion con empleados many2many aunque seria one2many, pero como no existe, pues hacemos many2many
+		#'id_empleado': fields.char('ID Empleado', size=20, required=True),#aqui va la relacion con empleados many2many aunque seria one2many, pero como no existe, pues hacemos many2many
+		'id_empleado' : fields.one2many('hr.employee', 'identification_id', 'Empleado'),
 	}
 tarjeta_rfid()
