@@ -1,0 +1,69 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<openerp>
+ <data>
+  <record id="tarjeta_tree_control" model="ir.ui.view">
+    <field name="name">tarjeta.tree.control</field>
+    <field name="model">tarjeta.rfid</field>
+    <field name="type">tree</field>
+    <field name="arch" type="xml">
+      <tree string="Test Base">
+        <field name="id" />
+        <field name="fecha_emitida" />
+        <field name="fecha_caduca" />
+        <field name="estado" />
+        <!-- <field name="id_employee" /> -->
+        <!-- <field name="id_tarjeta" /> -->
+        <field name="id_empleado" />
+      </tree>
+    </field>
+  </record>
+  
+  <record id="tarjeta_form_control" model="ir.ui.view">
+    <field name="name">tarjeta.form.control</field>
+    <field name="model">tarjeta.rfid</field>
+    <field name="type">form</field>
+    <field name="arch" type="xml">
+      <form string="Test Base">
+        <field name="id" />
+        <field name="fecha_emitida" />
+        <field name="fecha_caduca" />
+        <field name="estado" />
+        <!-- <field name="id_employee" /> -->
+        <!-- <field name="id_tarjeta" /> -->
+        <!-- <field name="id_empleado" /> -->
+      </form>
+    </field>
+  </record>
+  
+  <record id="tarjeta_form_control2" model="ir.ui.view">
+    <field name="name">tarjeta.form.control2</field>
+    <field name="model">tarjeta.rfid</field>
+    <field name="type">form</field>
+    <field name="arch" type="xml">
+      <form string="Test Base">
+        <field name="id" />
+        <field name="fecha_emitida" />
+        <field name="fecha_caduca" />
+        <field name="estado" />
+        <!-- <field name="id_employee" /> -->
+        <!-- <field name="id_tarjeta" /> -->
+        <field name="id_empleado" />
+      </form>
+    </field>
+  </record>
+
+ <record id="act_tarjetas" model="ir.actions.act_window">
+   <field name="name">Tarjetas</field>
+   <field name="res_model">tarjeta.rfid</field>
+   <field name="view_type">form</field>
+   <field name="view_mode">tree,form</field>
+   <field name="view_id" ref="tarjeta_form_control2"/>
+<!-- 	<field name="view_id" ref="tarjeta_tree_control"/> -->
+
+ </record>
+
+
+ <menuitem name="Tarjetas" id="submenu_tarjetas" parent="empleados" sequence="100" action="act_tarjetas" />
+ <menuitem name="Tarjetas" id="submenu_tarjetas_link" parent="submenu_tarjetas" sequence="100" action="act_tarjetas" />
+</data>
+</openerp>
