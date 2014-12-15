@@ -4,6 +4,7 @@ class nomina_item(osv.Model):
     _name = 'nomina.item'
     _inherit = 'hr.payslip.input'
     _columns = {
+    	'id_nomina': fields.many2one('nomina','Nomina')
                 
     }
     def calcula_importe():
