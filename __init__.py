@@ -19,3 +19,9 @@
 #
 ##############################################################################
 import hr_employee
+import tarjeta
+import nomina
+import asistencia
+import nomina_item
+import catalogo_asistencia
+import permisos

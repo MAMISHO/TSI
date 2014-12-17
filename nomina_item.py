@@ -2,14 +2,13 @@ from osv import fields, osv
 
 class nomina_item(osv.Model):
     _name = 'nomina.item'
-    _inherit = 'hr.payslip.input'
     _columns = {
-                
+    	'id_nomina': fields.many2one('nomina','Nomina'),
+        #'id_item':fields.char(),
+        'descripcion': fields.char('Descripcion nomina', size=128),
+        'departamento': fields.char('Departamento', size=128),
+        'importe': fields.char('Importe nomina', size=10),  
     }
-    def calcula_importe():
-		#aqui calculamos el importe dependiendo de los días trabajados y del departamento
-		#al que pertence
 
-		return 1;
 
 nomina_item()
