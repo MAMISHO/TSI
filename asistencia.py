@@ -13,9 +13,9 @@ class asistencia(osv.Model):
     #_rec_name = 'id_asistencia'
     _description = 'asistencia de empleados '
     _columns = {
-            'hora_salida':fields.datetime('hora salida'),
+            'hora_salida':fields.datetime('Hora salida'),
             'hora_entrada': fields.datetime('Hora entrada', required=True),
-            'tipo_departamento':fields.char('tipo de departamento ', size=64, required=True),            
+            'tipo_departamento':fields.char('Tipo de departamento ', size=64, required=True),            
             'id_tarjeta': fields.many2one('tarjeta.rfid', 'Tarjetas'),
         }
 asistencia()
