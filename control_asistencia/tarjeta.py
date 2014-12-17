@@ -19,6 +19,7 @@ class tarjeta_rfid(osv.Model):
 			],'Estado'),
 		#'id_empleado': fields.char('ID Empleado', size=20, required=True),#aqui va la relacion con empleados many2many aunque seria one2many, pero como no existe, pues hacemos many2many
 		'id_empleado' : fields.many2one('hr.employee','Empleado'),
+        'id_asistencia' : fields.one2many('asistencia','id_tarjeta', 'Asistencia'),
 		#'id_employee' : fields.related('id_empleado', 'resource_id', type='many2one', relation='hr.employee', string='El empleado'),
 		#'id_tarjeta' : fields.related('id_empleado', 'resource_id', type='many2one', relation='hr.employee', string='El empleado'),
 		#'id_tarjeta': fields.function(name_get, type="char", string='Name'),
