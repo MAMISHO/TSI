@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <openerp>
 	<data>
-		<record model="ir.ui.view" id="view_nomina3">
+		<record id="view_nomina3" model="ir.ui.view">
 			<field name="name">view_nomina_search</field>
 			<field name="model">hr.payslip</field>
 			<field name="type">search</field>
@@ -13,7 +13,7 @@
 			</field>
 		</record>
 				
- 		<record model="ir.ui.view" id="view_nomina2">
+ 		<record id="view_nomina2" model="ir.ui.view">
 			<field name="name">view_nomina_tree</field>
 			<field name="model">hr.payslip</field>
 			<field name="type">tree</field>
@@ -25,7 +25,7 @@
 			</field>
 		</record>
  		
-		<record model="ir.ui.view" id="view_nomina1">
+		<record id="view_nomina1" model="ir.ui.view">
 			<field name="name">view_nomina_form</field>
 			<field name="model">hr.payslip</field>
 			<field name="type">form</field>
@@ -40,7 +40,7 @@
 		</record>
 
 		<record id="act_nomina" model="ir.actions.act_window">
-	   		<field name="name">nomina_act</field>
+	   		<field name="name">Nómina</field>
 	   		<field name="res_model">hr.payslip</field>
 	   		<field name="view_type">form</field>
 	   		<field name="view_mode">tree,form</field>

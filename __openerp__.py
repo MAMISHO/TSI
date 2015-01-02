@@ -16,5 +16,4 @@
     'demo_xml': [],
     'installable': True,
     'active': False,
-#    'certificate': 'certificate',
 }

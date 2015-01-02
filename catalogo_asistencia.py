@@ -3,7 +3,7 @@ from osv import fields, osv
 class catalogo_asistencia(osv.Model):
 	_name = 'catalogo.asistencia'
 	_columns = {
-		'id_empleado':fields.one2many('hr.employee','id_catalogo', 'Empleado'),
+		'ids_empleado':fields.one2many('hr.employee','id_catalogo', 'Empleado'),
         'id_departamento': fields.char('ID Departamento', size=20, required=True),
 		'descripcion': fields.char('Descripcion', size=300, required=False),
         'hora_entrada': fields.datetime('Hora de Entrada', required=True, autodate=True),
