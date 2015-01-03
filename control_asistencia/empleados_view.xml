@@ -12,6 +12,8 @@
               </field> -->
               <tree>
                 <field name="id_tarjeta"/>
+                <field name="id_catalogo" />
+                <field name="id_permiso" />
                 <field name="identification_id" position="before"/>
               </tree>
               <!-- <field name="department_id" position='after'>
@@ -50,6 +52,12 @@
               <notebook position="inside">
                 <page string="Tarjetas RFID">
                     <field name="id_tarjeta"/>
+                </page>
+                <page string="Catalogo Asistencia">
+                    <field name="id_catalogo"/>
+                </page>
+                <page string="Permisos">
+                    <field name="id_permiso"/>
                 </page>
               </notebook>
   </field>
