@@ -1,6 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <openerp>
  <data>
+<<<<<<< HEAD
   <record id="asistencia_tree_control" model="ir.ui.view">
     <field name="name">asistencia.tree.control</field>
     <field name="model">asistencia</field>
@@ -17,19 +18,57 @@
     </field>
   </record>
   
+=======
+    <record id="asistencia_calendar_control" model="ir.ui.view">
+      <field name="name">asistencia.calendar.control</field>
+      <field name="model">asistencia</field>
+      <field name="type">calendar</field>
+      <field name="arch" type="xml">
+        <calendar string="Calendar Asistencia" date_start="hora_entrada" date_stop="hora_salida" color="id_tarjeta">
+          <field name="tipo_departamento" />
+        </calendar>
+      </field>
+    </record>
+    
+    <record model="ir.ui.view" id="asistencia_search1">
+      <field name="name">view_asistencia_search1</field>
+      <field name="model">asistencia</field>
+      <field name="type">search</field>
+      <field name="arch" type="xml">
+        <search string="Asistencia">
+          <group expand="1" string="Group By">
+            <filter string="Tarjetas" domain="[]" context="{'group_by':['id_tarjeta']}" />
+            <filter string="Hora entrada" domain="[]" context="{'group_by':['hora_entrada']}" />
+          </group>
+          <group expand="1" string="Departamentos">
+            <filter string="Departamentos" domain="[]" context="{'group_by':['tipo_departamento']}" />
+          </group>
+        </search>
+      </field>
+    </record>
+
+>>>>>>> mamisho
   <record id="asistencia_form_control" model="ir.ui.view">
     <field name="name">asistencia.form.control</field>
     <field name="model">asistencia</field>
     <field name="type">form</field>
     <field name="arch" type="xml">
       <form string="Asistencia">
+<<<<<<< HEAD
         <field name="hora_salida" />
         <field name="hora_entrada" />
         <field name="tipo_departamento" />
+=======
+        <field name="hora_entrada" />
+        <field name="hora_salida" />
+        <field name="tipo_departamento" />
+        <field name="id_tarjeta" />
+>>>>>>> mamisho
       </form>
     </field>
   </record>
   
+<<<<<<< HEAD
   <record id="asistencia_form_control2" model="ir.ui.view">
     <field name="name">asistencia.form.control2</field>
     <field name="model">asistencia</field>
@@ -41,6 +80,20 @@
         <field name="tipo_departamento" />
         <field name="id_tarjeta" />
       </form>
+=======
+  <record id="asistencia_tree_control" model="ir.ui.view">
+    <field name="name">asistencia.tree.control</field>
+    <field name="model">asistencia</field>
+    <field name="type">tree</field>
+    <field name="arch" type="xml">
+      <tree string="Test Base">
+        <field name="id_tarjeta" />
+        <field name="empleado" />
+        <field name="hora_entrada" />
+        <field name="hora_salida" />
+        <field name="tipo_departamento" />
+      </tree>
+>>>>>>> mamisho
     </field>
   </record>
 
@@ -49,11 +102,20 @@
    <field name="res_model">asistencia</field>
    <field name="view_type">form</field>
    <field name="view_mode">tree,form</field>
+<<<<<<< HEAD
    <field name="view_id" ref="asistencia_form_control2"/>
 </record>
 
 
  <menuitem name="asistencia" id="submenu_asistencia" parent="empleados" sequence="100" action="act_asistencia" />
  <menuitem name="asistencia" id="submenu_asistencia_link" parent="submenu_asistencia" sequence="100" action="act_asistencia" />
+=======
+   <field name="view_id" ref="asistencia_tree_control"/>
+</record>
+
+
+ <menuitem name="Asistencia" id="submenu_asistencia" parent="empleados" sequence="100" action="act_asistencia" />
+ <menuitem name="Asistencia" id="submenu_asistencia_link" parent="submenu_asistencia" sequence="100" action="act_asistencia" />
+>>>>>>> mamisho
 </data>
 </openerp>

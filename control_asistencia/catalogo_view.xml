@@ -9,6 +9,7 @@
 	   			<form string="Catalogo Asistencia">
 	   				<field name="id_departamento"/>
 	   				<field name="descripcion"/>
+<<<<<<< HEAD
 	   				<field name="hora_entrada"/>
 	   				<field name="hora_salida"/>
 	   				<field name="atraso_tiempo"/>
@@ -19,6 +20,19 @@
 	   				<field name="inasistencia_multa"/>
 	   				<field name="hora_extra_tiempo"/>
 	   				<field name="hora_extra_costo"/>
+=======
+	   				<field name="hora_entrada"  widget="float_time"/>
+	   				<field name="hora_salida"  widget="float_time"/>
+	   				<field name="atraso_tiempo"  widget="float_time"/>
+	   				<field name="atraso_multa"/>
+	   				<field name="descuento_hora_tiempo"  widget="float_time"/>
+	   				<field name="descuento_hora_multa"/>
+	   				<field name="inasistencia_tiempo"  widget="float_time"/>
+	   				<field name="inasistencia_multa"/>
+	   				<field name="hora_extra_tiempo"  widget="float_time"/>
+	   				<field name="hora_extra_costo"/>
+	   				<field name="bono_asistencia"/>
+>>>>>>> mamisho
 	   			</form>
 	   		</field>
    		</record>
@@ -31,6 +45,7 @@
 				<tree string="Nomina">
 	   				<field name="id_departamento"/>
 	   				<field name="descripcion"/>
+<<<<<<< HEAD
 	   				<field name="hora_entrada"/>
 	   				<field name="hora_salida"/>
 	   				<field name="atraso_tiempo"/>
@@ -40,13 +55,23 @@
 	   				<field name="inasistencia_tiempo"/>
 	   				<field name="inasistencia_multa"/>
 	   				<field name="hora_extra_tiempo"/>
+=======
+	   				<field name="hora_entrada" widget="float_time"/>
+	   				<field name="hora_salida" widget="float_time"/>
+	   				<field name="atraso_tiempo" widget="float_time"/>
+	   				<field name="atraso_multa"/>
+>>>>>>> mamisho
 	   				<field name="hora_extra_costo"/>
 				</tree>
 			</field>
 		</record>
 		
 		<record id="act_catalogo" model="ir.actions.act_window">
+<<<<<<< HEAD
 	   		<field name="name">catalogo_act</field>
+=======
+	   		<field name="name">Catálogo</field>
+>>>>>>> mamisho
 	   		<field name="res_model">catalogo.asistencia</field>
 	   		<field name="view_type">form</field>
 	   		<field name="view_mode">tree,form</field>
