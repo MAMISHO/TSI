@@ -2,17 +2,6 @@ from osv import fields, osv
 import datetime
 
 class nomina_item(osv.Model):
-<<<<<<< HEAD
-    _name = 'nomina.item'
-    _columns = {
-    	'id_nomina': fields.many2one('hr.payslip','Nomina'),
-        #'id_item':fields.char(),
-        'descripcion': fields.char('Descripcion nomina', size=128),
-        'departamento': fields.char('Departamento', size=128),
-        'importe': fields.char('Importe nomina', size=10),  
-    }
-
-=======
 	
 	def _calculo(self,  cr, uid, ids, name, arg, context = None):
 		print(context)
@@ -137,7 +126,6 @@ class nomina_item(osv.Model):
 		mm = str(hr).split(".")[1]
 		mm = int(mm) * 60/100
 		return float(hh + '.' + str(mm))
->>>>>>> mamisho
 
 	print ("Nomina item test : finaliza bien")
 		

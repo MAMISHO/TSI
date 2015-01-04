@@ -12,16 +12,6 @@ class tarjeta_rfid(osv.Model):
 			],'Estado'),
 		'id_empleado' : fields.many2one('hr.employee','Empleado'),
         'id_asistencia' : fields.one2many('asistencia','id_tarjeta', 'Asistencia'),
-<<<<<<< HEAD
-		#'id_employee' : fields.related('id_empleado', 'resource_id', type='many2one', relation='hr.employee', string='El empleado'),
-		#'id_tarjeta' : fields.related('id_empleado', 'resource_id', type='many2one', relation='hr.employee', string='El empleado'),
-		#'id_tarjeta': fields.function(name_get, type="char", string='Name'),
-	}
-	# print _columns['id_empleado'] atributo de todos los elementos de formulario "attrs"
-	# print "Esta es un aprueba"
-	# print hr.employee
-	
-=======
         }
     
         def name_get(self, cr, uid, ids, context={}):
@@ -35,6 +25,5 @@ class tarjeta_rfid(osv.Model):
                 res.append((tar.id, identificador))
             print("sale tarjeta test")
             return res
->>>>>>> mamisho
 
 tarjeta_rfid()

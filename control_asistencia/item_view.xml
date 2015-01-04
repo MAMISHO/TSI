@@ -1,33 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <openerp>
  	<data>
-<<<<<<< HEAD
- 		<record id="nomina_item_form" model="ir.ui.view">
-		    <field name="name">nomina_item_view</field>
-		    <field name="model">nomina.item</field>
-		    <field name="type">form</field>
-		    <field name="arch" type="xml">
-		      <form string="Nomina Item">
-		        <field name="descripcion" />
-		        <field name="departamento" />
-		        <field name="importe" />
-		      </form>
-		    </field>
-		</record>
-		
-
-		
-		<record id="act_item" model="ir.actions.act_window">
-		   <field name="name">Nomina Item</field>
-		   <field name="res_model">nomina.item</field>
-		   <field name="view_type">form</field>
-		   <field name="view_mode">form,tree</field>
-		   <field name="view_id" ref="nomina_item_form"/>
-		</record>
-		
-		<menuitem name="Item" id="submenu_item" parent="empleados" sequence="100" action="act_item" />
-		<menuitem name="Item" id="submenu_item_link" parent="submenu_item" sequence="100" action="act_item" />
-=======
 	<record id="item_tree_control" model="ir.ui.view">
     <field name="name">item.tree.control</field>
     <field name="model">nomina.item</field>
@@ -78,6 +51,5 @@
  
 <!-- 		<menuitem name="Item" id="submenu_item" parent="empleados" sequence="100" action="act_item" />
 		<menuitem name="Item" id="submenu_item_link" parent="submenu_item" sequence="100" action="act_item" /> -->
->>>>>>> mamisho
  	</data>
  </openerp>
