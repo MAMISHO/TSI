@@ -36,11 +36,6 @@
 	   				<field name="hora_salida" widget="float_time"/>
 	   				<field name="atraso_tiempo" widget="float_time"/>
 	   				<field name="atraso_multa"/>
-	   				<!-- <field name="descuento_hora_tiempo" widget="float_time"/>
-	   				<field name="descuento_hora_multa"/>
-	   				<field name="inasistencia_tiempo" widget="float_time"/>
-	   				<field name="inasistencia_multa"/>
-	   				<field name="hora_extra_tiempo" widget="float_time"/> -->
 	   				<field name="hora_extra_costo"/>
 				</tree>
 			</field>

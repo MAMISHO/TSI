@@ -1,32 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <openerp>
  	<data>
-<!--  		<record id="nomina_item_form" model="ir.ui.view"> -->
-<!-- 		    <field name="name">nomina_item_view</field> -->
-<!-- 		    <field name="model">nomina.item</field> -->
-<!-- 		    <field name="type">form</field> -->
-<!-- 		    <field name="arch" type="xml"> -->
-<!-- 		      <form string="Nomina Item"> -->
-<!-- 		        <field name="descripcion" /> -->
-<!-- 		        <field name="departamento" /> -->
-<!-- 		        <field name="importe" /> -->
-<!-- 		        <notebook position="replace"> -->
-<!-- 	                <page string="Nomina Item"> -->
-<!-- 	                	<field name="descripcion" /> -->
-<!-- 		        		<field name="departamento" /> -->
-<!-- 		        		<field name="importe" /> -->
-<!-- 		        		<field name="testeo" /> -->
-<!-- 		        		<field name="dia_inicio" /> -->
-<!-- 		        		<field name="dia_final" /> -->
-<!-- 	                </page> -->
-<!-- 	                <page string="Asistencias"> -->
-<!-- 	                	<field name="id_asistencias"/> -->
-<!-- 	                </page> -->
-<!-- 	              </notebook> -->
-<!-- 		      </form> -->
-<!-- 		    </field> -->
-<!-- 		</record> -->
-				
 	<record id="item_tree_control" model="ir.ui.view">
     <field name="name">item.tree.control</field>
     <field name="model">nomina.item</field>
@@ -49,9 +23,6 @@
     <field name="type">form</field>
     <field name="arch" type="xml">
       <form string="Nomina Item">
-		        <!-- <field name="descripcion" />
-		        <field name="departamento" />
-		        <field name="importe" /> -->
 		        <notebook position="replace">
 	                <page string="Nomina Item">
 	                	<field name="descripcion" />

@@ -1,6 +1,34 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <openerp>
  <data>
+    <record id="tarjeta_calendar_control" model="ir.actions.act_window">
+      <field name="name">Calendar classes of the cards</field>
+      <field name="res_model">asistencia</field>
+      <field name="view_type">form</field>
+      <field name="view_mode">calendar</field>
+    </record>
+    
+    <record model="ir.ui.view" id="tarjeta_search1">
+      <field name="name">view_tarjeta_search1</field>
+      <field name="model">tarjeta.rfid</field>
+      <field name="type">search</field>
+      <field name="arch" type="xml">
+        <search string="Tarjeta">
+          <group expand="1" string="Group By">
+            <filter string="Empleado" domain="[]" context="{'group_by':['id_empleado']}" />
+          </group>
+          <group expand="1" string="Estado Tarjeta">
+            <filter string="Activa" domain="[('estado','=','activa')]"
+              help="Tarjeta Activa" />
+            <filter string="Inactiva" domain="[('estado','=','inactiva')]"
+              help="Tarjeta Inactiva" />
+            <filter string="Perdida" domain="[('estado','=','perdida')]"
+              help="Tarjeta Perdida" />
+          </group>
+        </search>
+      </field>
+    </record>
+    
   <record id="tarjeta_tree_control" model="ir.ui.view">
     <field name="name">tarjeta.tree.control</field>
     <field name="model">tarjeta.rfid</field>
@@ -11,8 +39,6 @@
         <field name="fecha_emitida" />
         <field name="fecha_caduca" />
         <field name="estado" />
-        <!-- <field name="id_employee" /> -->
-        <!-- <field name="id_tarjeta" /> -->
         <field name="id_empleado" />
       </tree>
     </field>
@@ -27,9 +53,6 @@
         <field name="fecha_emitida" />
         <field name="fecha_caduca" />
         <field name="estado" />
-        <!-- <field name="id_employee" /> -->
-        <!-- <field name="id_tarjeta" /> -->
-        <!-- <field name="id_empleado" /> -->
       </form>
     </field>
   </record>
@@ -44,8 +67,6 @@
         <field name="fecha_emitida" />
         <field name="fecha_caduca" />
         <field name="estado" />
-        <!-- <field name="id_employee" /> -->
-        <!-- <field name="id_tarjeta" /> -->
         <field name="id_empleado" />
       </form>
     </field>
@@ -57,21 +78,7 @@
    <field name="view_type">form</field>
    <field name="view_mode">tree,form</field>
    <field name="view_id" ref="tarjeta_form_control2"/>
-   <!-- <field name="view_id" ref="tarjeta_tree_control"/> -->
  </record>
-
-<!--   <record model="ir.actions.act_window.view" id="act_tarjetas_form1">
-      <field eval="1" name="sequence"/>
-      <field name="view_mode">form</field>
-      <field name="view_id" ref="tarjeta_form_control"/>
-      <field name="act_window_id" ref="act_tarjetas"/>
-  </record>
-  <record model="ir.actions.act_window.view" id="act_tarjetas_form2">
-    <field eval="2" name="sequence"/>
-    <field name="view_mode">form</field>
-    <field name="view_id" ref="tarjeta_form_control2"/>
-    <field name="act_window_id" ref="act_tarjetas"/>
-  </record> -->
 
 
  <menuitem name="Tarjetas" id="submenu_tarjetas" parent="empleados" sequence="100" action="act_tarjetas" />

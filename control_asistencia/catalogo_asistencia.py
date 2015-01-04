@@ -4,16 +4,15 @@ import math
 
 class catalogo_asistencia(osv.Model):
 	_name = 'catalogo.asistencia'
-        _rec_name='descripcion'
+	_rec_name='descripcion'
 	_columns = {
 		'id_empleado':fields.one2many('hr.employee','id_catalogo', 'Empleado'),
-        #'id_departamento': fields.char('ID Departamento', size=20, required=True),
         'id_departamento':fields.many2one('hr.department', 'Departamento'),
-	'descripcion': fields.char('Descripcion', size=300, required=False),
+        'descripcion': fields.char('Descripcion', size=300, required=False),
         'hora_entrada': fields.float('Hora de Entrada', required=True),
         'hora_salida': fields.float('Hora de Salida', required=True),
         'atraso_tiempo': fields.float('Retraso', required=True, digits=(2,2)),
-	'atraso_multa': fields.float('Multa retraso',required=True),
+        'atraso_multa': fields.float('Multa retraso',required=True),
         'descuento_hora_tiempo': fields.float('Descuento por hora', required=True),
         'descuento_hora_multa': fields.float('Multa por hora', required=True),
         'inasistencia_tiempo': fields.float('Inasistencia por hora', required=True),
@@ -27,8 +26,6 @@ class catalogo_asistencia(osv.Model):
                 for catalogo in self.browse(cr, uid, ids, context=context):
                         aux = catalogo.hora_entrada
                         mm,hh = math.modf(aux)
-                        #print(hh)
-                        #print(mm)
                         hora = datetime.datetime(2015,1,1,hh,mm,00)
                 return hora
 
