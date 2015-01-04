@@ -78,7 +78,7 @@
 		</record>
  
  
-		<menuitem name="Item" id="submenu_item" parent="empleados" sequence="100" action="act_item" />
-		<menuitem name="Item" id="submenu_item_link" parent="submenu_item" sequence="100" action="act_item" />
+<!-- 		<menuitem name="Item" id="submenu_item" parent="empleados" sequence="100" action="act_item" />
+		<menuitem name="Item" id="submenu_item_link" parent="submenu_item" sequence="100" action="act_item" /> -->
  	</data>
  </openerp>

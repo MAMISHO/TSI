@@ -103,14 +103,15 @@ class nomina_item(osv.Model):
 		return res
 
 	def _get_departamento(self,  cr, uid, ids, name, arg, context = None):
+		print("Esto es get departamento")
 		x = ids[0]
 		for obj in self.browse(cr, uid, ids, context = context):
 			aux= obj.id_nomina
 		#aux  =  self.browse(cr, uid, ids, context = context).id_nomina
 			#for x in aux.employee_id:
-			print(aux.employee_id.departament_id.name)
+			print(aux.employee_id.department_id.name)
 			#for obj in aux.beta.alpha:
-			resul = aux.employee_id.departament_id.name
+			resul = aux.employee_id.department_id.name
 		res = {x:resul}
 		print(res)
 		return res
@@ -118,7 +119,7 @@ class nomina_item(osv.Model):
 	def _get_dia_inicio(self,  cr, uid, ids, name, arg, context = None):
 		x = ids[0]
 		for obj in self.browse(cr, uid, ids, context = context):
-			aux= id_nomina.date_from
+			aux= obj.id_nomina.date_from
 		res = {x:aux}
 		print(res)
 		return res
@@ -126,25 +127,25 @@ class nomina_item(osv.Model):
 	def _get_dia_fin(self,  cr, uid, ids, name, arg, context = None):
 		x = ids[0]
 		for obj in self.browse(cr, uid, ids, context = context):
-			aux= id_nomina.date_to
+			aux= obj.id_nomina.date_to
 		res = {x:aux}
 		print(res)
 		return res
 
 	_name = 'nomina.item'
-	_inherit = 'hr.payslip.input'
+	#_inherit = 'hr.payslip.input'
 	_rec_name = 'id_empleado'
 	_columns = {
     	'id_nomina': fields.many2one('hr.payslip','Nomina'),
         'descripcion': fields.char('Descripcion nomina', size=128),
-        #'departamento': fields.function(_get_departamento, method = True, type = 'char', string ='Departamento'),
-        'departamento': fields.char('Departamento', size=128),
-        'testeo' : fields.function(_calculo, method = True, type = 'float', string ='Importe'), 
+        'departamento': fields.function(_get_departamento, method = True, type = 'char', string ='Departamento', store=True),
+        #'departamento': fields.char('Departamento', size=128),
+        'testeo' : fields.function(_calculo, method = True, type = 'float', string ='Importe', store=True), 
         'id_asistencias' : fields.one2many('asistencia','id_item_nomina', 'Asistencias'),
-        #'dia_inicio': fields.function(_get_dia_inicio, method = True, type = 'char', string ='Dia Inicial'),
-        #'dia_final': fields.function(_get_dia_fin, method = True, type = 'char', string ='Dia Final'),
-        'dia_inicio':fields.datetime('Dia inicial', required=True),
-        'dia_final': fields.datetime('Dia final', required=True),
+        'dia_inicio': fields.function(_get_dia_inicio, method = True, type = 'char', string ='Dia Inicial', store=True),
+        'dia_final': fields.function(_get_dia_fin, method = True, type = 'char', string ='Dia Final', store=True),
+        #'dia_inicio':fields.datetime('Dia inicial', required=True),
+        #'dia_final': fields.datetime('Dia final', required=True),
         'id_empleado' : fields.function(_get_empleado, method = True, type = 'char', string ='Empleado'),#, store=True),
     }
 	

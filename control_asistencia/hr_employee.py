@@ -24,10 +24,10 @@ class hr_employee(osv.Model):
         res=[]
 
         for emp in self.browse(cr, uid, ids,context=context):
-            #compuesto = str(emp.name) + ', ' + str(emp.identification_id)
-            #res.append((emp.id, compuesto))
+            compuesto = emp.name + ' - ' + (str(emp.identification_id)).decode('unicode-escape')
+            res.append((emp.id, compuesto))
             #res.append((emp.id, emp.name))# + ', ' + emp.identification_id))     
-            res.append((emp.id, emp.name))
+            #res.append((emp.id, emp.name))
         return res
 
 hr_employee()

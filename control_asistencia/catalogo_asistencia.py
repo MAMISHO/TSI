@@ -50,4 +50,14 @@ class catalogo_asistencia(osv.Model):
                         hora = datetime.datetime(2015,1,1,hh,mm,00)
                 return hora
 
+        def name_get(self, cr, uid, ids, context={}):
+                if not len(ids):
+                    return []
+                res=[]
+                x = ids[0]
+                for obj in self.browse(cr, uid, ids,context=context):
+                    compuesto = obj.id_departamento.name
+                    res.append((x, compuesto))
+                return res
+
 catalogo_asistencia()

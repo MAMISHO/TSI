@@ -31,9 +31,10 @@ class tarjeta_rfid(osv.Model):
             res=[]
             print("Entra tarjeta test")
             for tar in self.browse(cr, uid, ids,context=context):
-                print(tar.id)
-                identificador = str(tar.id)
-                res.append((tar.id, identificador))     
+                # print(tar.id)
+                # for emp in tar.id_empleado:
+                identificador = (str(tar.id)).decode('unicode-escape') + '-' + (str(tar.id_empleado.identification_id)).decode('unicode-escape')
+                res.append((tar.id, identificador))
             print("sale tarjeta test")
             return res
 

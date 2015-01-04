@@ -8,7 +8,7 @@
 			<field name="inherit_id" ref="hr_payroll.view_hr_payslip_tree"/>
 			<field name="arch" type="xml">
 				<xpath expr="/tree/field[@name='number']" position="before">
-					<field name="id_item" />
+					<!-- <field name="id_item" /> -->
 				</xpath>
 			</field>
 		</record>
