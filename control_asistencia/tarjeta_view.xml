@@ -1,22 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <openerp>
  <data>
-  <record id="tarjeta_tree_control" model="ir.ui.view">
-    <field name="name">tarjeta.tree.control</field>
-    <field name="model">tarjeta.rfid</field>
-    <field name="type">tree</field>
-    <field name="arch" type="xml">
-      <tree string="Test Base">
-        <field name="id" />
-        <field name="fecha_emitida" />
-        <field name="fecha_caduca" />
-        <field name="estado" />
-        <!-- <field name="id_employee" /> -->
-        <!-- <field name="id_tarjeta" /> -->
-        <field name="id_empleado" />
-      </tree>
-    </field>
-  </record>
   
   <record id="tarjeta_form_control" model="ir.ui.view">
     <field name="name">tarjeta.form.control</field>
@@ -52,6 +36,23 @@
     </field>
   </record>
 
+    <record id="tarjeta_tree_control" model="ir.ui.view">
+    <field name="name">tarjeta.tree.control</field>
+    <field name="model">tarjeta.rfid</field>
+    <field name="type">tree</field>
+    <field name="arch" type="xml">
+      <tree string="Test Base">
+        <field name="id" />
+        <field name="fecha_emitida" />
+        <field name="fecha_caduca" />
+        <field name="estado" />
+        <!-- <field name="id_employee" /> -->
+        <!-- <field name="id_tarjeta" /> -->
+        <field name="id_empleado" />
+      </tree>
+    </field>
+  </record>
+  
  <record id="act_tarjetas" model="ir.actions.act_window">
    <field name="name">Tarjetas</field>
    <field name="res_model">tarjeta.rfid</field>
