@@ -1,0 +1,75 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<openerp>
+  <data>
+    <record id="hr_employee_tree_control" model="ir.ui.view">
+   <field name="name">hr.employee.tree.control</field>
+   <field name="model">hr.employee</field>
+   <field name="type">form</field>
+   <field name="inherit_id" ref="hr.view_employee_tree"/>
+   <field name="arch" type="xml">
+              <tree>
+                <field name="id_tarjeta"/>
+                <field name="id_catalogo" />
+                <field name="id_permiso" />
+                <field name="identification_id" position="before"/>
+              </tree>
+              <!-- <field name="department_id" position='after'>
+                
+              </field> -->
+              <field name="name" position="before">
+                <field name="id"/>
+              </field>
+              <field name="work_phone" position="attributes"><!--invisible-->
+                <attribute name="invisible">True</attribute>
+              </field>
+              <field name="work_email" position="attributes"><!--invisible-->
+                <attribute name="invisible">True</attribute>
+              </field>
+              <field name="company_id" position="attributes"><!--invisible-->
+                <attribute name="invisible">True</attribute>
+              </field>
+              <field name="job_id" position="attributes"><!--invisible-->
+                <attribute name="invisible">True</attribute>
+              </field>
+              <field name="parent_id" position="attributes"><!--invisible-->
+                <attribute name="invisible">True</attribute>
+              </field>
+              <field name="coach_id" position="attributes"><!--invisible-->
+                <attribute name="invisible">True</attribute>
+              </field>
+            </field>
+    </record>
+
+  <record id="hr_employee_form_control" model="ir.ui.view">
+   <field name="name">hr.employee.form.control</field>
+   <field name="model">hr.employee</field>
+   <field name="type">form</field>
+   <field name="inherit_id" ref="hr.view_employee_form"/>
+   <field name="arch" type="xml">
+              <notebook position="inside">
+                <page string="Tarjetas RFID">
+                    <field name="id_tarjeta"/>
+                </page>
+                <page string="Catalogo Asistencia">
+                    <field name="id_catalogo"/>
+                </page>
+                <page string="Permisos">
+                    <field name="id_permiso"/>
+                </page>
+              </notebook>
+  </field>
+  </record>
+
+        <record id="act_controlempleados" model="ir.actions.act_window">
+           <field name="name">Empleados</field>
+           <field name="res_model">hr.employee</field>
+           <field name="view_type">form</field>
+           <field name="view_mode">tree,form</field>
+         </record>
+
+
+         <menuitem id="empleados" name="Control de asistencia" action="act_controlempleados" />
+         <menuitem name="Empleados" id="control_empleados_submenu" parent="empleados" sequence="100" action="act_controlempleados" />
+         <menuitem name="Empleados" id="control_empleados_submenu_link" parent="control_empleados_submenu" sequence="100" action="act_controlempleados" />
+  </data>
+</openerp>

@@ -1,0 +1,55 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<openerp>
+ 	<data>
+	<record id="item_tree_control" model="ir.ui.view">
+    <field name="name">item.tree.control</field>
+    <field name="model">nomina.item</field>
+    <field name="type">tree</field>
+    <field name="arch" type="xml">
+      <tree string="Test Base">
+        <field name="id_nomina" />
+        		<field name="id_empleado" />
+		        <field name="departamento" />
+		        <field name="testeo" />
+		        <field name="dia_inicio" />
+		        <field name="dia_final" />
+      </tree>
+    </field>
+  </record>
+  
+  <record id="item_form_control" model="ir.ui.view">
+    <field name="name">item.form.control</field>
+    <field name="model">nomina.item</field>
+    <field name="type">form</field>
+    <field name="arch" type="xml">
+      <form string="Nomina Item">
+		        <notebook position="replace">
+	                <page string="Nomina Item">
+	                	<field name="descripcion" />
+		        		<field name="departamento" />
+		        		<!-- <field name="importe" /> -->
+		        		<field name="testeo" />
+		        		<field name="dia_inicio" />
+		        		<field name="dia_final" />
+	                </page>
+	                <!-- <page string="Asistencias">
+	                	<field name="id_asistencias"/>
+	                </page> -->
+	              </notebook>
+		      </form>
+    </field>
+  </record>
+  
+ 		<record id="act_item" model="ir.actions.act_window">
+		   <field name="name">Nomina Item</field>
+		   <field name="res_model">nomina.item</field>
+		   <field name="view_type">tree</field>
+		   <field name="view_mode">tree</field>
+		   <field name="view_id" ref="item_tree_control"/>
+		</record>
+ 
+ 
+<!-- 		<menuitem name="Item" id="submenu_item" parent="empleados" sequence="100" action="act_item" />
+		<menuitem name="Item" id="submenu_item_link" parent="submenu_item" sequence="100" action="act_item" /> -->
+ 	</data>
+ </openerp>
