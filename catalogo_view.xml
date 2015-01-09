@@ -1,0 +1,78 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<openerp>
+	<data>
+	
+	    <record model="ir.ui.view" id="catalogo_search1">
+      <field name="name">view_catalogo_search1</field>
+      <field name="model">catalogo.asistencia</field>
+      <field name="type">search</field>
+      <field name="arch" type="xml">
+        <search string="Tarjeta">
+          <group expand="1" string="Group By">
+            <filter string="Departamento" domain="[]" context="{'group_by':['id_departamento']}" />
+          </group>
+			<group expand="1" string="Multa hora">
+						<filter string="de 0 to 30" domain="[('descuento_hora_multa','&lt;','30')]" />
+						<filter string="de 30 to 80" domain="[('descuento_hora_multa', '>=','30'), ('descuento_hora_multa','&lt;','80')]" />
+							<filter string="mas de 80" domain="[('descuento_hora_multa','>=','80')]" />
+					</group>
+					<group expand="1" string="Multa Inasistencia">
+						<filter string="de 0 to 50" domain="[('inasistencia_multa','&lt;','50')]" />
+						<filter string="de 50 to 100" domain="[('inasistencia_multa', '>=','50'), ('inasistencia_multa','&lt;','100')]" />
+							<filter string="mas de 100" domain="[('inasistencia_multa','>=','100')]" />
+					</group>
+        </search>
+      </field>
+    </record>
+    
+		<record id="catalogo_tree_control" model="ir.ui.view">
+			<field name="name">catalgo.tree.form</field>
+	   		<field name="model">catalogo.asistencia</field>
+			<field name="type">form</field>
+	   		<field name="arch" type="xml">
+	   			<form string="Catalogo Asistencia">
+	   				<field name="id_departamento"/>
+	   				<field name="descripcion"/>
+	   				<field name="hora_entrada"  widget="float_time"/>
+	   				<field name="hora_salida"  widget="float_time"/>
+	   				<field name="atraso_tiempo"  widget="float_time"/>
+	   				<field name="atraso_multa"/>
+	   				<field name="descuento_hora_tiempo"  widget="float_time"/>
+	   				<field name="descuento_hora_multa"/>
+	   				<field name="inasistencia_tiempo"  widget="float_time"/>
+	   				<field name="inasistencia_multa"/>
+	   				<field name="hora_extra_tiempo"  widget="float_time"/>
+	   				<field name="hora_extra_costo"/>
+	   				<field name="bono_asistencia"/>
+	   			</form>
+	   		</field>
+   		</record>
+   		
+   		<record model="ir.ui.view" id="view_catalogo_tree">
+			<field name="name">view_catalgo_tree</field>
+			<field name="model">catalogo.asistencia</field>
+			<field name="type">tree</field>
+			<field name="arch" type="xml">
+				<tree string="Nomina">
+	   				<field name="id_departamento"/>
+	   				<field name="descripcion"/>
+	   				<field name="hora_entrada" widget="float_time"/>
+	   				<field name="hora_salida" widget="float_time"/>
+	   				<field name="atraso_tiempo" widget="float_time"/>
+	   				<field name="atraso_multa"/>
+	   				<field name="hora_extra_costo"/>
+				</tree>
+			</field>
+		</record>
+		
+		<record id="act_catalogo" model="ir.actions.act_window">
+	   		<field name="name">Catálogo</field>
+	   		<field name="res_model">catalogo.asistencia</field>
+	   		<field name="view_type">form</field>
+	   		<field name="view_mode">tree,form</field>
+		</record>
+		
+		<menuitem name="Catalogo Asistencia" id="submenu_catalogo" parent="empleados" sequence="100" action="act_catalogo" />
+		<menuitem name="Catalogo" id="submenu_catalogo_link" parent="submenu_catalogo" sequence="100" action="act_catalogo" />
+	</data>
+</openerp>

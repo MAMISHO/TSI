@@ -1,0 +1,67 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<openerp>
+ <data>
+ <record model="ir.ui.view" id="permiso_search1">
+      <field name="name">view_permiso_search1</field>
+      <field name="model">employee.permiso</field>
+      <field name="type">search</field>
+      <field name="arch" type="xml">
+        <search string="Permisos">
+          <group expand="1" string="Group By">
+            <filter string="Empleado" domain="[]" context="{'group_by':['id_empermi']}" />
+          </group>
+        </search>
+      </field>
+    </record>
+ 
+  <record id="permiso_tree_control" model="ir.ui.view">
+    <field name="name">permiso.tree.control</field>
+    <field name="model">employee.permiso</field>
+    <field name="type">tree</field>
+    <field name="arch" type="xml">
+      <tree string="Test Base">
+            <field name="id_permiso" />
+            <field name="descripcion"/>
+            <field name="id_empermi"/>
+      </tree>
+    </field>
+  </record>
+  
+  <record id="permiso_form_control" model="ir.ui.view">
+    <field name="name">permiso.form.control</field>
+    <field name="model">employee.permiso</field>
+    <field name="type">form</field>
+    <field name="arch" type="xml">
+      <form string="Test Base">
+            <field name="id_permiso" />
+            <field name="descripcion"/>
+      </form>
+    </field>
+  </record>
+  
+    <record id="permiso_form_control2" model="ir.ui.view">
+    <field name="name">permiso.form.control2</field>
+    <field name="model">employee.permiso</field>
+    <field name="type">form</field>
+    <field name="arch" type="xml">
+      <form string="Test Base">
+            <field name="id_permiso" />
+            <field name="descripcion"/>
+            <field name="id_empermi"/>
+      </form>
+    </field>
+  </record>
+  
+ <record id="act_permisos" model="ir.actions.act_window">
+   <field name="name">Permisos</field>
+   <field name="res_model">employee.permiso</field>
+   <field name="view_type">form</field>
+   <field name="view_mode">tree,form</field>
+   <field name="view_id" ref="permiso_form_control2"/>
+ </record>
+
+
+ <menuitem name="Permisos" id="submenu_permisos" parent="empleados" sequence="100" action="act_permisos" />
+ <menuitem name="Permisos" id="submenu_permisos_link" parent="submenu_permisos" sequence="100" action="act_permisos" />
+</data>
+</openerp>

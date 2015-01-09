@@ -1,71 +1,108 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <openerp>
 	<data>
-    	<record id="hr_employee_tree_control" model="ir.ui.view">
-			<field name="name">hr.employee.tree.control</field>
-		    <field name="model">hr.employee</field>
-		    <field name="type">form</field>
-		    <field name="inherit_id" ref="hr.view_employee_tree"/>
-		    <field name="arch" type="xml">
-            	<tree>
-                	<field name="id_tarjeta"/>
-                	<field name="id_catalogo" />
-                	<field name="id_permiso" />
-                	<field name="identification_id" position="before"/>
-              	</tree>
-				<field name="name" position="before">
-              		<field name="id"/>
-              	</field>
-              	<field name="work_phone" position="attributes"><!--invisible-->
-                	<attribute name="invisible">True</attribute>
-              	</field>
-              	<field name="work_email" position="attributes"><!--invisible-->
-                	<attribute name="invisible">True</attribute>
-              	</field>
-              	<field name="company_id" position="attributes"><!--invisible-->
-                	<attribute name="invisible">True</attribute>
-              	</field>
-              	<field name="job_id" position="attributes"><!--invisible-->
-                	<attribute name="invisible">True</attribute>
-              	</field>
-              	<field name="parent_id" position="attributes"><!--invisible-->
-                	<attribute name="invisible">True</attribute>
-              	</field>
-              	<field name="coach_id" position="attributes"><!--invisible-->
-                	<attribute name="invisible">True</attribute>
-              	</field>
+		<record id="empleado_calendar_control" model="ir.actions.act_window">
+      		<field name="name">Asistencias</field>
+      		<field name="res_model">asistencia</field>
+      		<field name="view_type">form</field>
+      		<field name="view_mode">calendar</field>
+    	</record>
+	
+		<record id="view_empleado3" model="ir.ui.view">
+			<field name="name">view_empleado_search</field>
+			<field name="model">hr.employee</field>
+			<field name="type">search</field>
+			<field name="inherit_id" ref="hr.view_employee_filter" />
+			<field name="arch" type="xml">
+				<xpath expr="/search/group/filter[@string='Company']" position="after">
+					<filter string="Departamento" domain="[]" context="{'group_by':['department_id']}" />
+				</xpath>
+				<xpath expr="/search/group[@string='Group By...']" position="after">
+					<group expand="1" string="Estado">
+						<filter string="Soltero" domain="[('marital','=','single')]" />
+						<filter string="Casado" domain="[('marital','=','married')]" />
+						<filter string="Viudo" domain="[('marital','=','widower')]" />
+						<filter string="Divorciado" domain="[('marital','=','divorced')]" />
+					</group>
+					<group expand="1" string="Sexo">
+						<filter string="Hombre" domain="[('gender','=','male')]"
+							help="Hombre" />
+						<filter string="Mujer" domain="[('gender','=','female')]"
+							help="Mujer" />
+					</group>
+				</xpath>
 			</field>
 		</record>
-		    
+		<record id="hr_employee_tree_control" model="ir.ui.view">
+			<field name="name">hr.employee.tree.control</field>
+			<field name="model">hr.employee</field>
+			<field name="type">form</field>
+			<field name="inherit_id" ref="hr.view_employee_tree" />
+			<field name="arch" type="xml">
+				<tree>
+					<field name="id_tarjeta" />
+					<field name="id_catalogo" />
+					<field name="id_permiso" />
+					<field name="identification_id" position="before" />
+					<button type="action" icon="gtk-execute" name ="%(control_asistencia.empleado_calendar_control)d" string="Asistencia" />
+				</tree>
+				<!-- <field name="department_id" position='after'> </field> -->
+				<field name="name" position="before">
+					<field name="id" />
+				</field>
+				<field name="work_phone" position="attributes"><!--invisible -->
+					<attribute name="invisible">True</attribute>
+				</field>
+				<field name="work_email" position="attributes"><!--invisible -->
+					<attribute name="invisible">True</attribute>
+				</field>
+				<field name="company_id" position="attributes"><!--invisible -->
+					<attribute name="invisible">True</attribute>
+				</field>
+				<field name="job_id" position="attributes"><!--invisible -->
+					<attribute name="invisible">True</attribute>
+				</field>
+				<field name="parent_id" position="attributes"><!--invisible -->
+					<attribute name="invisible">True</attribute>
+				</field>
+				<field name="coach_id" position="attributes"><!--invisible -->
+					<attribute name="invisible">True</attribute>
+				</field>
+			</field>
+		</record>
+
 		<record id="hr_employee_form_control" model="ir.ui.view">
 			<field name="name">hr.employee.form.control</field>
 			<field name="model">hr.employee</field>
 			<field name="type">form</field>
-			<field name="inherit_id" ref="hr.view_employee_form"/>
+			<field name="inherit_id" ref="hr.view_employee_form" />
 			<field name="arch" type="xml">
-	            <notebook position="inside">
-	        		<page string="Tarjetas RFID">
-	            		<field name="id_tarjeta"/>
-	                </page>
-	                <page string="Catalogo Asistencia">
-	                    <field name="id_catalogo"/>
-	                </page>
+				<notebook position="inside">
+					<page string="Tarjetas RFID">
+						<field name="id_tarjeta" />
+					</page>
+					<page string="Catalogo Asistencia">
+						<field name="id_catalogo" />
+					</page>
 					<page string="Permisos">
-	                    <field name="id_permiso"/>
-	                </page>
+						<field name="id_permiso" />
+					</page>
 				</notebook>
-  			</field>
-  		</record>
-
-		<record id="act_controlempleados" model="ir.actions.act_window">
-        	<field name="name">Empleados</field>
-            <field name="res_model">hr.employee</field>
-            <field name="view_type">form</field>
-            <field name="view_mode">tree,form</field>
+			</field>
 		</record>
 
-        <menuitem id="empleados" name="Control de asistencia" action="act_controlempleados" />
-        <menuitem name="Empleados" id="control_empleados_submenu" parent="empleados" sequence="100" action="act_controlempleados" />
-        <menuitem name="Empleados" id="control_empleados_submenu_link" parent="control_empleados_submenu" sequence="100" action="act_controlempleados" />
+		<record id="act_controlempleados" model="ir.actions.act_window">
+			<field name="name">Empleados</field>
+			<field name="res_model">hr.employee</field>
+			<field name="view_type">form</field>
+			<field name="view_mode">tree,form</field>
+		</record>
+
+
+		<menuitem id="empleados" name="Control de asistencia" action="act_controlempleados" />
+		<menuitem name="Empleados" id="control_empleados_submenu"
+			parent="empleados" sequence="100" action="act_controlempleados" />
+		<menuitem name="Empleados" id="control_empleados_submenu_link"
+			parent="control_empleados_submenu" sequence="100" action="act_controlempleados" />
 	</data>
 </openerp>
